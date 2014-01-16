@@ -10,6 +10,12 @@ import com.thinkaurelius.titan.core.TitanFactory;
 import com.thinkaurelius.titan.core.TitanGraph;
 import com.tinkerpop.blueprints.Vertex;
 
+/**
+ * simple test
+ * 
+ * @author lkastler
+ *
+ */
 public class MainTest {
 
 	static Logger log = LogManager.getLogger();
