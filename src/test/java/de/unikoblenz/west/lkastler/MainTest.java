@@ -1,7 +1,7 @@
 package de.unikoblenz.west.lkastler;
 
-import org.apache.commons.configuration.BaseConfiguration;
 import org.apache.commons.configuration.Configuration;
+import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
@@ -21,12 +21,10 @@ public class MainTest {
 	static Logger log = LogManager.getLogger();
 	
 	@Test
-	public void simpleTitanTest() {
+	public void simpleTitanTest() throws Throwable {
 		log.info("START");
 		
-		Configuration conf = new BaseConfiguration();
-		conf.setProperty("storage.directory", "/tmp/graph");
-		conf.setProperty("storage.backend", "berkeleyje");
+		Configuration conf = new PropertiesConfiguration(this.getClass().getClassLoader().getResource("config.properties"));
 		TitanGraph g = TitanFactory.open(conf);
 		
 		Vertex juno = g.addVertex(null);
